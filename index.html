@@ -4,824 +4,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
-<title>Viernes 13 | Para ti</title>
+<title>Viernes 13 🖤</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
- background:#080808;
- color:#eee;
- font-family:'Cormorant Garamond',serif;
- overflow-x:hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-button{cursor:pointer}
-
-#intro{
- position:fixed;
- inset:0;
- z-index:1000;
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- text-align:center;
- background:radial-gradient(#222,#080808 70%);
- transition:opacity 1s,visibility 1s;
- padding:20px;
+body {
+    background: #080808;
+    color: #eee;
+    font-family: Georgia, serif;
+    text-align: center;
 }
 
-#intro.hide{
- opacity:0;
- visibility:hidden;
- pointer-events:none;
+section {
+    padding: 55px 20px;
 }
 
-#intro h1,.hero h1{
- font-family:'Cinzel',serif;
- font-size:clamp(38px,10vw,70px);
- letter-spacing:6px;
- text-shadow:0 0 25px #900019;
+.portada {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:
+        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.9)),
+        radial-gradient(circle, #481515, #080808 70%);
 }
 
-.kicker{
- font:12px 'Cinzel',serif;
- letter-spacing:5px;
- color:#aaa;
- margin-bottom:20px;
+h1 {
+    color: #b51e27;
+    font-size: clamp(2.5rem, 9vw, 4.5rem);
+    margin-bottom: 18px;
+    text-shadow: 0 0 20px #7e0000;
 }
 
-.intro-hint{
- color:#aaa;
- font-size:20px;
- margin:20px;
- font-style:italic;
+h2 {
+    color: #c52c35;
+    margin-bottom: 20px;
 }
 
-.knife-button{
- width:190px;
- height:170px;
- border:1px solid #555;
- background:#111;
- border-radius:8px;
- display:flex;
- justify-content:center;
- align-items:center;
- box-shadow:0 0 25px #000;
+p {
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 12px auto;
 }
 
-.knife-svg{width:145px;height:125px}
-
-.blade{fill:#ccc;stroke:#555;stroke-width:2}
-.handle{fill:#222;stroke:#777;stroke-width:2}
-
-.liquid{
- fill:#bd001f;
- opacity:0;
- transform:translateY(-25px);
- transition:opacity .3s;
+button {
+    background: #8d111b;
+    color: white;
+    border: 1px solid #d34a4a;
+    padding: 13px 25px;
+    margin: 15px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
 }
 
-#intro.activated .liquid{
- opacity:1;
- animation:pour .8s forwards;
+button:hover {
+    background: #bd202b;
 }
 
-@keyframes pour{
- to{transform:translateY(0)}
+img, video {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 9px;
+    border: 1px solid #542020;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 0 18px #260000;
 }
 
-#intro.activated .knife-button{
- box-shadow:0 0 35px #a00020;
- border-color:#a00020;
+.tarjeta {
+    max-width: 700px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #151010;
+    border: 1px solid #472020;
+    border-radius: 10px;
 }
 
-.open-label{
- font:12px 'Cinzel',serif;
- letter-spacing:3px;
- margin-top:20px;
- color:#ddd;
+.fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    max-width: 950px;
+    margin: auto;
 }
 
-.hero{
- min-height:90vh;
- display:flex;
- align-items:flex-end;
- justify-content:center;
- text-align:center;
- padding:60px 20px;
- background:
- linear-gradient(to bottom,transparent,rgba(0,0,0,.8),#080808),
- url('portada.jpg') center/cover;
+.fotos img {
+    height: 280px;
+    object-fit: cover;
 }
 
-.hero-content{max-width:750px}
-
-.hero p{
- font-size:24px;
- font-style:italic;
- margin-top:20px;
+.carta {
+    background: #171010;
+    border: 1px solid #6b2525;
+    padding: 30px;
+    max-width: 700px;
+    margin: auto;
+    border-radius: 10px;
+    line-height: 2;
 }
 
-.rule{
- height:1px;
- width:75px;
- background:#a00018;
- margin:25px auto;
-}
-
-section{
- padding:75px 18px;
- position:relative;
-}
-
-.container{
- max-width:920px;
- margin:auto;
-}
-
-.title{
- font:clamp(24px,6vw,36px) 'Cinzel',serif;
- letter-spacing:3px;
- text-align:center;
- margin-bottom:15px;
-}
-
-.subtitle{
- color:#aaa;
- text-align:center;
- font-size:20px;
- font-style:italic;
- margin-bottom:40px;
-}
-
-.intro-copy{
- max-width:690px;
- margin:auto;
- text-align:center;
- font-size:24px;
- line-height:1.8;
- color:#ccc;
-}
-
-.red{color:#df314d}
-
-/* JASON */
-
-.jason-card{
- max-width:540px;
- margin:auto;
- padding:10px;
- background:#151515;
- border:1px solid #553038;
- box-shadow:0 0 30px #240008;
-}
-
-.jason-card img{
- display:block;
- width:100%;
- max-height:650px;
- object-fit:contain;
- background:#cbbba0;
-}
-
-.jason-caption{
- text-align:center;
- color:#aaa;
- font-size:19px;
- margin-top:18px;
- font-style:italic;
-}
-
-/* MUSICA */
-
-.music-panel{
- max-width:540px;
- margin:25px auto;
- padding:22px;
- border:1px solid #641526;
- background:#151515;
- text-align:center;
-}
-
-.music-panel p{
- font-size:22px;
- margin-bottom:18px;
-}
-
-.music-control{
- background:#900019;
- color:white;
- border:1px solid #c22a43;
- padding:13px 22px;
- letter-spacing:2px;
-}
-
-#music-status{
- display:block;
- color:#aaa;
- margin-top:12px;
-}
-
-/* FOTOS */
-
-.gallery{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:13px;
-}
-
-.photo{
- background:#151515;
- padding:7px;
- border:1px solid #383838;
-}
-
-.photo:first-child{
- grid-column:span 2;
-}
-
-.photo img{
- width:100%;
- height:210px;
- object-fit:cover;
- display:block;
- cursor:pointer;
- filter:grayscale(45%);
- transition:.4s;
-}
-
-.photo:first-child img{height:320px}
-
-.photo img:hover{
- filter:grayscale(0);
- transform:scale(1.01);
-}
-
-.photo p{
- text-align:center;
- padding:10px;
- color:#aaa;
- font-size:18px;
-}
-
-.lightbox{
- display:none;
- position:fixed;
- inset:0;
- z-index:800;
- background:rgba(0,0,0,.97);
- justify-content:center;
- align-items:center;
- padding:20px;
-}
-
-.lightbox img{
- max-width:100%;
- max-height:85vh;
- object-fit:contain;
-}
-
-.lightbox button{
- position:absolute;
- top:15px;
- right:25px;
- color:white;
- background:none;
- border:none;
- font-size:40px;
-}
-
-/* VIDEO */
-
-.video-box{
- max-width:720px;
- margin:auto;
- padding:10px;
- background:#151515;
- border:1px solid #641526;
-}
-
-.video-box video{
- width:100%;
- display:block;
- max-height:75vh;
- background:#000;
-}
-
-.video-caption{
- text-align:center;
- font-size:20px;
- color:#aaa;
- margin-top:18px;
- font-style:italic;
-}
-
-/* CARTA */
-
-.letter-section{
- background:
- linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.95)),
- url('portada.jpg') center/cover;
-}
-
-.letter{
- max-width:760px;
- margin:auto;
- padding:clamp(25px,6vw,48px);
- background:rgba(9,9,9,.9);
- border:1px solid #67202b;
- box-shadow:0 0 35px #240008;
- text-align:center;
-}
-
-.letter h2{
- font:clamp(25px,6vw,37px) 'Cinzel',serif;
- letter-spacing:3px;
- margin-bottom:25px;
-}
-
-.letter p{
- font-size:clamp(21px,4.8vw,26px);
- line-height:1.8;
- color:#ddd;
-}
-
-.closing{
- color:#df314d;
- font-style:italic;
- margin-top:25px;
-}
-
-footer{
- padding:30px;
- text-align:center;
- color:#666;
- font:11px 'Cinzel',serif;
- letter-spacing:3px;
-}
-
-#petals{
- position:fixed;
- inset:0;
- pointer-events:none;
- z-index:5;
- overflow:hidden;
-}
-
-.petal{
- position:absolute;
- top:-25px;
- color:#9d001b;
- opacity:.6;
- animation:fall linear infinite;
-}
-
-@keyframes fall{
- to{transform:translateY(110vh) rotate(600deg)}
-}
-
-@media(max-width:480px){
- section{padding:60px 15px}
- .photo img{height:165px}
- .photo:first-child img{height:235px}
- .gallery{gap:9px}
+footer {
+    padding: 30px;
+    color: #777;
 }
 </style>
 </head>
 
 <body>
 
-<div id="petals"></div>
+<section class="portada">
+    <h1>VIERNES 13</h1>
+    <p>Otro detalle para ti :&gt;</p>
 
-<!-- INTRO CON CUCHILLO -->
+    <p>
+        Sé que siempre es lo mismo pero es con cariño.
+        Cambié la temática a viernes 13 con una temática de terror,
+        algunos recuerdos nuestros y unas palabras que quiero que leas
+        con calma. Porque detrás de esta noche oscura, lo que importa eres tú.
+    </p>
 
-<div id="intro">
-
- <div class="kicker">UNA NOCHE DIFERENTE</div>
-
- <h1>VIERNES 13</h1>
-
- <p class="intro-hint">
- Otro detalle para ti :>
- </p>
-
- <button class="knife-button" id="knifeButton"
- aria-label="Abrir dedicatoria">
-
- <svg class="knife-svg" viewBox="0 0 180 140">
-
- <path class="handle"
- d="M15 88 L47 76 L65 100 L34 119 Q24 123 17 113 Z"/>
-
- <path class="blade"
- d="M48 79 L144 16 Q157 8 165 13 L161 28 L67 105 Z"/>
-
- <path d="M45 77 L67 105"
- stroke="#aaa" stroke-width="7" fill="none"/>
-
- <path class="liquid"
- d="M74 83 Q90 64 103 61 Q111 58 116 48
- Q123 43 128 49 Q133 56 124 65 L88 91
- Q80 97 74 83Z"/>
-
- <path class="liquid"
- d="M111 70 Q116 81 110 91 Q105 98 110 105"
- stroke="#b00020" stroke-width="5" fill="none"/>
-
- </svg>
-
- </button>
-
- <div class="open-label">
- PRESIONA EL CUCHILLO PARA ABRIR
- </div>
-
-</div>
-
-<!-- MUSICA -->
-
-<audio id="music" loop>
- <source src="viernes13.mp3" type="audio/mpeg">
-</audio>
-
-<!-- PORTADA -->
-
-<header class="hero">
-
- <div class="hero-content">
-
- <div class="kicker">
- UNA DEDICATORIA PARA ALGUIEN ESPECIAL
- </div>
-
- <h1>VIERNES 13</h1>
-
- <div class="rule"></div>
-
- <p>Una noche de terror, un detalle para ti.</p>
-
- <a href="#inicio" style="display:inline-block;margin-top:35px;color:#ddd;text-decoration:none;letter-spacing:3px">
- DESCUBRE LO QUE PREPARÉ ↓
- </a>
-
- </div>
-
-</header>
-
-<main>
-
-<!-- INTRODUCCION -->
+    <button onclick="document.getElementById('inicio').scrollIntoView({behavior:'smooth'})">
+        Entrar a la historia 🖤
+    </button>
+</section>
 
 <section id="inicio">
-
- <div class="container">
-
- <h2 class="title">ANTES DE QUE SIGAS</h2>
-
- <div class="rule"></div>
-
- <p class="intro-copy">
- Se que siempre es lo mismo pero es con cariño.
- cambie la tematica a viernes 13 con una temática de terror,
- algunos recuerdos nuestros y unas palabras
- que quiero que leas con calma.
-
- <br><br>
-
- <span class="red">
- Porque detrás de esta noche oscura,
- lo que importa eres tú.
- </span>
- </p>
-
- </div>
-
+    <h2>Una visita inesperada...</h2>
+    <div class="tarjeta">
+        <img src="img/jason.jpg" alt="Jason con flores">
+        <p>Jason dejó su bosque y llegó con algo para ti equide ...</p>
+        <p>No todas las visitas de esta noche vienen a asustarte. 🖤</p>
+    </div>
 </section>
-
-<!-- JASON -->
 
 <section>
-
- <div class="container">
-
- <h2 class="title">EL INVITADO DE ESTA NOCHE</h2>
-
- <p class="subtitle">
- Jason dejo su bosque y llegó con algo para ti equide ...
- </p>
-
- <div class="jason-card">
-
- <img src="jason.jpg"
- alt="Jason con flores">
-
- </div>
-
- <p class="jason-caption">
- No todas las visitas de esta noche vienen a asustarte. 🖤
- </p>
-
- <!-- BOTON MUSICAL -->
-
- <div class="music-panel">
-
- <p>
- Para que escuches mientras lees
- </p>
-
- <button class="music-control"
- id="musicButton"
- onclick="toggleMusic()">
-
- ▶ REPRODUCIENDO OÑO
-
- </button>
-
- <span id="music-status">
- Viernes 13
- </span>
-
- </div>
-
- </div>
-
+    <h2>Una canción para ti</h2>
+    <div class="tarjeta">
+        <p>Para que escuches mientras lees</p>
+        <audio controls>
+            <source src="audio/viernes13.mp3" type="audio/mpeg">
+            Tu navegador no puede reproducir este audio.
+        </audio>
+    </div>
 </section>
 
-<!-- GALERIA -->
-
-<section id="fotos">
-
- <div class="container">
-
- <h2 class="title">NUESTROS RECUERDOS</h2>
-
- <p class="subtitle">
- Cinco momentos que quise guardar aquí.
- </p>
-
- <div class="gallery">
-
- <div class="photo">
- <img src="foto1.jpg" alt="Recuerdo 1"
- onclick="openPhoto(this)">
- <p>❤️</p>
- </div>
-
- <div class="photo">
- <img src="foto2.jpg" alt="Recuerdo 2"
- onclick="openPhoto(this)">
- <p>❤️</p>
- </div>
-
- <div class="photo">
- <img src="foto3.jpg" alt="Recuerdo 3"
- onclick="openPhoto(this)">
- <p>❤️</p>
- </div>
-
- <div class="photo">
- <img src="foto4.png" alt="Recuerdo 4"
- onclick="openPhoto(this)">
- <p>❤️</p>
- </div>
-
- <div class="photo">
- <img src="foto5.jpg" alt="Recuerdo 5"
- onclick="openPhoto(this)">
- <p>❤️</p>
- </div>
-
- </div>
- </div>
-
+<section>
+    <h2>Nuestros recuerdos ❤️</h2>
+    <div class="fotos">
+        <img src="img/foto1.jpg" alt="Recuerdo 1">
+        <img src="img/foto2.jpg" alt="Recuerdo 2">
+        <img src="img/foto3.jpg" alt="Recuerdo 3">
+        <img src="img/foto4.png" alt="Recuerdo 4">
+        <img src="img/foto5.jpg" alt="Recuerdo 5">
+    </div>
+    <p>❤️</p>
 </section>
 
-<!-- VISOR DE FOTOS -->
-
-<div class="lightbox" id="lightbox"
-onclick="closePhoto()">
-
- <button onclick="closePhoto()">×</button>
-
- <img id="bigPhoto" src="" alt="Foto ampliada">
-
-</div>
-
-<!-- VIDEO -->
-
-<section id="video">
-
- <div class="container">
-
- <h2 class="title">VIDEO NUESTRO</h2>
-
- <p class="subtitle">
- Nos vemos muy kwai UwU, ¡demonios!.
- </p>
-
- <div class="video-box">
-
- <video controls playsinline preload="metadata">
-
- <source src="nosotros.mp4"
- type="video/mp4">
-
- Tu navegador no puede reproducir este video.
-
- </video>
-
- </div>
-
- <p class="video-caption">
- Ojalá este recuerdo también te saque una sonrisa.
- </p>
-
- </div>
-
+<section>
+    <h2>Un recuerdo más...</h2>
+    <div class="tarjeta">
+        <video controls playsinline>
+            <source src="video/nosotros.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este video.
+        </video>
+        <p>Nos vemos muy kwai UwU, ¡demonios!.</p>
+    </div>
 </section>
 
-<!-- CARTA -->
+<section>
+    <h2>Unas palabras para ti</h2>
+    <div class="carta">
+        <p>
+            Quiero que sepas lo importante que eres para mí.
+            Cada recuerdo, cada momento y cada detalle tienen
+            un lugar especial en mi corazón.
+        </p>
 
-<section class="letter-section" id="carta">
-
- <div class="container">
-
- <div class="letter">
-
- <h2>UNA CARTA PARA TI</h2>
-
- <p>
-
- Quiero que sepas lo importante que eres para mí.
- A veces puede que no encuentre las palabras exactas
- para demostrarte todo lo que significas,
- pero eso no cambia lo mucho que valoro
- tenerte en mi vida.
-
- <br><br>
-
- Me importan tus días, tus alegrías,
- tus preocupaciones y hasta esos pequeños detalles
- que quizá tú crees que pasan desapercibidos.
-
- Me gusta conocerte cada vez más,
- descubrir nuevas cosas de ti y seguir
- construyendo recuerdos juntos.
-
- <br><br>
-
- Sé que no todo siempre será sencillo
- y que habrá momentos en los que tendremos
- que tener paciencia, comprendernos y aprender
- el uno del otro.
-
- Pero quiero que sepas que lo que siento por ti
- es importante para mí, y que no doy por sentado
- cada momento que compartimos.
-
- <br><br>
-
- Gracias por ser tú, por formar parte de mis días
- y por darme motivos para preparar detalles como este.
-
- No quería dejar pasar esta fecha
- sin recordarte lo especial que eres para mí.
-
- <br><br>
-
- <span class="red">Te quiero muchísimo, bonita.</span>
-
- </p>
-
- <div class="rule"></div>
-
- <p class="closing">
-
- Sé que lo de nosotros no es fácil ni sencillo,
- pero no sabes lo sencillo que es enamorarme
- cada día más de ti, Te amo.
-
- <br><br>
-
- Feliz viernes 13. Aunque no sé qué signifique,
- mientras sea importante para ti,
- para mí también lo será.
-
- </p>
-
- </div>
-
- </div>
-
+        <p>
+            Sé que lo de nosotros no es fácil ni sencillo,
+            pero no sabes lo sencillo que es enamorarme cada día más de ti.
+            Te amo. Feliz viernes 13.
+            Aunque no sé qué signifique, mientras sea importante
+            para ti, para mí también lo será.
+        </p>
+    </div>
 </section>
-
-</main>
 
 <footer>
- Mis ojos ya no dan HELP
+    Mis ojos ya no dan HELP 🖤
 </footer>
-
-<script>
-
-// ABRIR LA PAGINA CON EL CUCHILLO
-
-const intro = document.getElementById('intro');
-
-document.getElementById('knifeButton')
-.addEventListener('click', () => {
-
- intro.classList.add('activated');
-
- setTimeout(() => {
-  intro.classList.add('hide');
-  window.scrollTo({top:0,behavior:'smooth'});
- },1000);
-
-});
-
-// MUSICA
-
-const music = document.getElementById('music');
-const musicButton = document.getElementById('musicButton');
-const musicStatus = document.getElementById('music-status');
-
-function toggleMusic(){
-
- if(music.paused){
-
-  music.play().then(() => {
-
-   musicButton.textContent='❚❚ PAUSAR CANCIÓN';
-   musicStatus.textContent='Reproduciendo: Viernes 13 — Carlos Manchaca';
-
-  }).catch(() => {
-
-   musicStatus.textContent='Revisa viernes13.mp3';
-
-  });
-
- }else{
-
-  music.pause();
-
-  musicButton.textContent='▶ REPRODUCIR CANCIÓN';
-  musicStatus.textContent='Canción pausada';
-
- }
-
-}
-
-// AMPLIAR FOTOGRAFIAS
-
-function openPhoto(img){
-
- document.getElementById('bigPhoto').src=img.src;
-
- document.getElementById('lightbox').style.display='flex';
-
-}
-
-function closePhoto(){
-
- document.getElementById('lightbox').style.display='none';
-
-}
-
-document.addEventListener('keydown',e=>{
-
- if(e.key==='Escape') closePhoto();
-
-});
-
-// PETALOS OSCUROS
-
-const petals=document.getElementById('petals');
-
-for(let i=0;i<18;i++){
-
- const p=document.createElement('span');
-
- p.className='petal';
- p.textContent='✦';
-
- p.style.left=Math.random()*100+'%';
-
- p.style.animationDuration=(9+Math.random()*12)+'s';
-
- p.style.animationDelay=(Math.random()*12)+'s';
-
- p.style.fontSize=(8+Math.random()*10)+'px';
-
- petals.appendChild(p);
-
-}
-
-</script>
 
 </body>
 </html>
